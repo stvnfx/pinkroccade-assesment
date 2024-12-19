@@ -1,0 +1,51 @@
+### Get all Sorted by name
+GET http://localhost:8080/person/all?sortType=NAME
+
+###
+
+### Get all Sorted by ID
+GET http://localhost:8080/person/all?sortType=ID
+
+###
+
+### Requirment 3a
+GET http://localhost:8080/3a
+
+###
+
+### Requirment 3b
+GET http://localhost:8080/3b
+
+###
+
+### Create Person
+POST http://localhost:8080/person
+Content-Type: application/json
+
+{
+  "name": "Pablo",
+  "birthdate": "1989-07-08"
+}
+
+###
+
+### Update Person
+PUT http://localhost:8080/person
+Content-Type: application/json
+
+{
+  "id": 199,
+  "names": ["Steven", "Test1"],
+  "birthdate": "1989-07-08"
+}
+###
+
+### Get Person
+GET http://localhost:8080/person?id=52
+
+###
+
+### Delete Person
+DELETE http://localhost:8080/person?id=199
+
+###
