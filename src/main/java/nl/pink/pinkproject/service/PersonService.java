@@ -96,15 +96,10 @@ public class PersonService {
         Stream<Person> stream = StreamSupport.stream(personRepository.findAll().spliterator(), false);
         Stream<Person> personStream = stream
                 .filter(person -> person.getPartner() != null)
-                .peek(person -> log.info("Partner is not null: {}", person))
                 .filter(person -> person.getChildren().size() > 3)
-                .peek(person -> log.info("Has more than 3 children: {}", person))
                 .filter(person -> person.getChildren().stream().anyMatch(child -> isPartnerAlsoParent(person, person.getPartner(), child)))
-                .peek(person -> log.info("Partner is also a parent for one of the children: {}", person))
-                .filter(person -> person.getChildren().stream().anyMatch(child -> calculateAge(child) < 18))
-                .peek(person -> log.info("Has at least one child under 18: {}", person));
+                .filter(person -> person.getChildren().stream().anyMatch(child -> calculateAge(child) < 18));
         List<Person> list = personStream.toList();
-        log.info("personStream.toList(): {}", list);
         return list;
     }
 
