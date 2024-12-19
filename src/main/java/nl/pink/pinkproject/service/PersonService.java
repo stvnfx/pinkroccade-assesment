@@ -119,15 +119,6 @@ public class PersonService {
         }
     }
 
-    public boolean isSamePartner(Person person1, Person person2) {
-        return person1.getPartner() != null && person1.getPartner().equals(person2);
-    }
-
-    public boolean isSameParent(Person person1, Person person2) {
-        return person1.getParent1() != null && person1.getParent1().equals(person2) ||
-                person1.getParent2() != null && person1.getParent2().equals(person2);
-    }
-
     public int calculateAge(Person person) {
         return person.getBirthdate().until(java.time.LocalDate.now()).getYears();
     }
